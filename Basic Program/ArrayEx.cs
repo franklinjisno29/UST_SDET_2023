@@ -11,6 +11,12 @@ namespace Basic_Program
         //readonly 
         int[] numbers = new int[5]; //={10,20,30};
         int[,] nums = new int[2, 2];
+        int[][,] arr = new int[][,]
+        {
+            new int[,] {{ 1, 2 }, { 3, 4 }},
+            new int[,] {{1,4},{5, 6 },{ 5, 7 }},
+            new int[,] {{ 2, 3 },{ 9, 8 },{ 7, 7 }}
+        };
         public void Onedim()
         {
             numbers[0] = 100;
@@ -35,6 +41,28 @@ namespace Basic_Program
             foreach(int num in nums)
             {
                 Console.WriteLine(num);
+            }
+        }
+
+        public void Ja()
+        {
+            foreach(var num in arr)
+            {
+                Console.WriteLine(num[1,1]);
+            }
+            for(int i=0;i < arr.Length;i++)
+            {
+                int x = 0;
+                for (int j = 0; j < arr[i].GetLength(x);j++)
+                {
+                    for (int k = 0; k < arr[j].Rank;k++)
+                    {
+                        Console.Write(arr[i][j,k] +" ");
+                    }
+                    Console.WriteLine();
+                }
+                x++;
+                Console.WriteLine();
             }
         }
     }

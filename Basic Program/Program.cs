@@ -62,3 +62,4 @@ Console.WriteLine("Net Pay: {0}", employee.CalculateSalary());*/
 ArrayEx arrayEx = new();
 arrayEx.Onedim();
 arrayEx.Twodim();
+arrayEx.Ja();

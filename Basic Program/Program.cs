@@ -44,8 +44,7 @@ Calculation calculation = new Calculation();
 int x = Convert.ToInt32(Console.ReadLine());
 int y = Convert.ToInt32(Console.ReadLine());
 double res = calculation.Add(x,y);
-Console.WriteLine(res);*/
-
+Console.WriteLine(res);
 
 Electricity electricity = new(12345, 9000, 9312, "raju");
 Console.WriteLine(electricity.consumernumber);
@@ -55,3 +54,11 @@ Electricity electricity2 = new(12346, 9000, 10000, "reju");
 Console.WriteLine(electricity2.consumernumber);
 Console.WriteLine(electricity2.consumername);
 Console.WriteLine(electricity2.CalculateBill());
+
+Employeee employee = new(111, "raju", "testing", 10000);
+Console.WriteLine("Emp ID: {0} \nName: {1} \nDept: {2} \nBasicPay: {3}", employee.Eid, employee.Ename, employee.Department, employee.Basicpay);
+Console.WriteLine("Net Pay: {0}", employee.CalculateSalary());*/
+
+ArrayEx arrayEx = new();
+arrayEx.Onedim();
+arrayEx.Twodim();

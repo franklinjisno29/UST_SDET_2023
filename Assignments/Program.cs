@@ -15,7 +15,7 @@ foreach (Product prod in product)
     prod.DisplayProducts();
     prod.ProductValue();
 
-}*/
+}
 //assignment2 19/10/2023
 
 Student[] student = new Student[3];
@@ -29,6 +29,39 @@ foreach(Student s in student)
     s.GetMarksSummary();
     Console.WriteLine();
 
+}
+
+//assignment1 20/10/23
+ElectronicsProduct ep = new("Apple", 150, 20, 6);
+ep.DisplayProducts();
+ep.DisplayWarrantyPeriod();
+
+//assignment2 20/10/23
+DigitalProduct dp = new("Apple", 150, 20, 6, "MP3");
+dp.DisplayProducts();
+dp.DisplayWarrantyPeriod();
+dp.DisplayFileFormat();*/
+
+//assignment3 20/10/23
+Console.WriteLine("1. EP \n2. DP \n3. CP");
+switch (Convert.ToInt32(Console.ReadLine()))
+{
+    case 1:
+        ElectronicsProduct ep = new("Apple", 150, 20, 6);
+        ep.DisplayProducts();
+        ep.DisplayWarrantyPeriod();
+        break;
+    case 2:
+        DigitalProduct dp = new("Apple", 150, 20, 6, "MP3");
+        dp.DisplayProducts();
+        dp.DisplayWarrantyPeriod();
+        dp.DisplayFileFormat();
+        break;
+    case 3:
+        ClothingProduct cp = new("shirt", 750, 20, "small");
+        cp.DisplayProducts();
+        cp.DisplaySize();
+        break;
 }
 
 

@@ -155,7 +155,7 @@ switch (Convert.ToInt32(Console.ReadLine()))
         s.DisplayCollegeDetails();
         s.DisplayStudentDetails();
         break;
-}*/
+}
 
 //abstract ex
 EV ev = new();
@@ -171,3 +171,19 @@ pv.Model = "A2016";
 pv.Disp();
 Console.WriteLine(pv.SetTypeForVeh());
 
+//21/10/23
+//interface
+//IDoctor doc = new Doctor();
+//doc.ADDNewDoctor();
+////doc.DisplayDoctor();
+//doc.ModifyDoctor();
+////doc.DisplayDoctor();*/
+
+Doctor doc = new Doctor();
+doc.ADDNewDoctor(122,"dholu");
+doc.DisplayDoctor();
+doc.ModifyDoctor(123, "bholu");
+doc.DisplayDoctor();
+doc.BookApp(231, "raju");
+doc.DelApp("raju");
+doc.Add(2, 3);

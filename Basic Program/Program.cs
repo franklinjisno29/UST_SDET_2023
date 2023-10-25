@@ -171,19 +171,54 @@ pv.Model = "A2016";
 pv.Disp();
 Console.WriteLine(pv.SetTypeForVeh());
 
-//21/10/23
-//interface
-//IDoctor doc = new Doctor();
-//doc.ADDNewDoctor();
-////doc.DisplayDoctor();
-//doc.ModifyDoctor();
-////doc.DisplayDoctor();*/
+21/10/23
+interface
+IDoctor doc = new Doctor();
+doc.ADDNewDoctor();
+//doc.DisplayDoctor();
+doc.ModifyDoctor();
+//doc.DisplayDoctor();
 
 Doctor doc = new Doctor();
-doc.ADDNewDoctor(122,"dholu");
+doc.ADDNewDoctor(122, "dholu");
 doc.DisplayDoctor();
 doc.ModifyDoctor(123, "bholu");
 doc.DisplayDoctor();
 doc.BookApp(231, "raju");
 doc.DelApp("raju");
 doc.Add(2, 3);
+
+BankDetails bd1 = new(123, 12343243, "vv", "inactive");
+BankDetails bd2 = new(1234, 8686823, "dd", "inactive");
+bd2.WelcomeMessage();
+Console.WriteLine("1. custid 2. accno 3. name");
+int ch = Convert.ToInt32(Console.ReadLine());
+
+switch(ch)
+{
+    case 1:
+        Console.WriteLine("custid:");
+        //bd1.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
+        bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
+        break;
+        case 2:
+        Console.WriteLine("Acc.no:");
+        bd2.GetAccDetails(Convert.ToInt64(Console.ReadLine()));
+        break;
+        case 3:
+        Console.WriteLine("Name:");
+        bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
+        break;
+    default: Console.WriteLine("enter 1,2 or 3");
+        break;
+
+}
+
+
+NGC nGC = new NGC();
+//nGC.ArrayListHandling();
+//nGC.StackHandling();
+//nGC.QueueHandling();
+//nGC.HTHandling();
+nGC.SortedListHandling();*/
+

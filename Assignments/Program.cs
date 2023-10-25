@@ -40,7 +40,7 @@ ep.DisplayWarrantyPeriod();
 DigitalProduct dp = new("Apple", 150, 20, 6, "MP3");
 dp.DisplayProducts();
 dp.DisplayWarrantyPeriod();
-dp.DisplayFileFormat();*/
+dp.DisplayFileFormat();
 
 //assignment3 20/10/23
 Console.WriteLine("1. EP \n2. DP \n3. CP");
@@ -62,7 +62,14 @@ switch (Convert.ToInt32(Console.ReadLine()))
         cp.DisplayProducts();
         cp.DisplaySize();
         break;
-}
+}*/
+Circle c = new Circle();
+c.Radius = 4;
+c.Draw();
+Rectangle r = new Rectangle();
+r.Length = 4;
+r.Width = 4;
+r.Draw();
 
 
 

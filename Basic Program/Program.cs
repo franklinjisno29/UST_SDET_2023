@@ -221,4 +221,9 @@ NGC nGC = new NGC();
 //nGC.QueueHandling();
 //nGC.HTHandling();
 nGC.SortedListHandling();*/
-
+Basic_Program.GC gC = new Basic_Program.GC();
+//gC.ListHandling();
+//gC.StackHandling();
+//gC.QueueHandling();
+//gC.DictionaryHandling();
+gC.SortedListHandling();

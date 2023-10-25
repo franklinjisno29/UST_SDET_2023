@@ -62,14 +62,26 @@ switch (Convert.ToInt32(Console.ReadLine()))
         cp.DisplayProducts();
         cp.DisplaySize();
         break;
-}*/
+}
+//assignment 23/10/23
 Circle c = new Circle();
 c.Radius = 4;
 c.Draw();
 Rectangle r = new Rectangle();
 r.Length = 4;
 r.Width = 4;
-r.Draw();
+r.Draw();*/
 
+//assignment1 25/10/23
+InsurancePolicy ip = new("jeevanraksha", 123, 25000);
+ip.RenewPolicy(26000);
+ip.RenewPolicy();
 
+//assignment2
+LifeInsurance li = new("jeeavnraksha", 1234, 12000, 45);
+li.CalculatePremium();
+Console.WriteLine("Life insurance Premium amount: {0}", li.PremiumAmount);
+CarInsurance ci = new("vahanraksha", 321, 3000, "petrol");
+ci.CalculatePremium();
+Console.WriteLine("Car insurance Premium amount: {0}", ci.PremiumAmount);
 

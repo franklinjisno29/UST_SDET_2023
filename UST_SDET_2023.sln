@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Basic Program", "Basic Prog
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignments", "Assignments\Assignments.csproj", "{259850FA-48D4-4FE5-84F3-0CADC985AD1C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case Study", "Case Study\Case Study.csproj", "{507B22C4-7A9D-48A1-BFAC-C39EDCCA6C50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Case Study", "Case Study\Case Study.csproj", "{507B22C4-7A9D-48A1-BFAC-C39EDCCA6C50}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

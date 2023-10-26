@@ -55,7 +55,7 @@ namespace Basic_Program
             }
             else
             {
-                throw new ArgumentException(MyExceptions.exmsglist[3]);
+                throw new Num1Exception(MyExceptions.exmsglist[3]);
             }
             if (Num2 < 100)
             {
@@ -63,7 +63,18 @@ namespace Basic_Program
             }
             else
             {
-                throw new ArgumentException(MyExceptions.exmsglist[4]);
+                throw new Num2Exception(MyExceptions.exmsglist[4]);
+            }
+        }
+        public void Numcheck1()
+        {
+            if (Num2 < 100)
+            {
+                Console.WriteLine("Congratz");
+            }
+            else
+            {
+                throw new Num2Exception(MyExceptions.exmsglist[4]);
             }
         }
     }

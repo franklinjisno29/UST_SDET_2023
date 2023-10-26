@@ -257,13 +257,20 @@ catch(Exception ex)
 }
 finally { Console.WriteLine("done"); }*/
 
-ExcepHandling exp = new(102, 102);
+ExcepHandling exp = new(99, 102);
 try
 {
     exp.Numcheck();
 }
-catch(ArgumentException ex)
+catch(Num1Exception ex)
 {
     Console.WriteLine(ex.Message);
-
+}
+try
+{
+    exp.Numcheck1();
+}
+catch (Num2Exception ex)
+{
+    Console.WriteLine(ex.Message);
 }

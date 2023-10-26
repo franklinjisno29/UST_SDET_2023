@@ -23,4 +23,18 @@ namespace Basic_Program.ExceptionMessages
              {4,"more hundred" }
         };
     }
+    internal class Num1Exception : Exception
+    {
+        public Num1Exception(string msg) : base(msg)
+        {
+
+        }
+    }
+    internal class Num2Exception : Exception
+    {
+        public Num2Exception(string msg) : base(msg)
+        {
+
+        }
+    }
 }

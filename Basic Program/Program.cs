@@ -1,6 +1,7 @@
 ﻿using Basic_Program;
+using Basic_Program.ExceptionMessages;
 /*
- Console.WriteLine("Enter 2 numbers");
+Console.WriteLine("Enter 2 numbers");
 int x, y, z;
 x = Convert.ToInt32(Console.ReadLine());
 y = Convert.ToInt32(Console.ReadLine());
@@ -19,23 +20,23 @@ Console.WriteLine(s1.ToLower());
 Console.WriteLine(s2.Substring(3));
 string[] s=s3.Split(' ');
 for(int i=0;i<s.Length;i++)
-    Console.WriteLine(s[i]);
+Console.WriteLine(s[i]);
 
 
 double x = 5;
 switch (x)
 {
-    case 7.1:
-        Console.WriteLine("1");
-        break;
-    case 7.2:
-        Console.WriteLine("2");
-        break;
-    case 7.3:
-        Console.WriteLine("3");
-        break;
-    default: Console.WriteLine("4");
-        break;
+case 7.1:
+Console.WriteLine("1");
+break;
+case 7.2:
+Console.WriteLine("2");
+break;
+case 7.3:
+Console.WriteLine("3");
+break;
+default: Console.WriteLine("4");
+break;
 }
 
 //driver
@@ -94,67 +95,67 @@ Console.WriteLine("Grade:" + grade.CalculateGrade());
 Console.WriteLine("1. TS \n2. NTS");
 switch(Convert.ToInt32(Console.ReadLine()))
 {
-    case 1:
-        TeachingStaff ts = new();
-        ts.Staffid = 1;
-        ts.Name = "raju";
-        ts.Dept = "CS";
-        ts.Specializations = "processor";
-        ts.Sem = 3;
-        ts.DisplayStaffDetails();
-        ts.DisplayTSDetails();
-        break;
-    case 2:
-        NonTeachingStaff nts = new();
-        nts.Staffid = 11;
-        nts.Name = "reju";
-        nts.Dept = "Office";
-        nts.Responsibilities = "excel";
-        nts.Experience = 3;
-        nts.DisplayStaffDetails();
-        nts.DisplayNTSDetails();
-        break;
+case 1:
+TeachingStaff ts = new();
+ts.Staffid = 1;
+ts.Name = "raju";
+ts.Dept = "CS";
+ts.Specializations = "processor";
+ts.Sem = 3;
+ts.DisplayStaffDetails();
+ts.DisplayTSDetails();
+break;
+case 2:
+NonTeachingStaff nts = new();
+nts.Staffid = 11;
+nts.Name = "reju";
+nts.Dept = "Office";
+nts.Responsibilities = "excel";
+nts.Experience = 3;
+nts.DisplayStaffDetails();
+nts.DisplayNTSDetails();
+break;
 }
 
 Console.WriteLine("1. TS \n2. NTS \n3. S");
 switch (Convert.ToInt32(Console.ReadLine()))
 {
-    case 1:
-        TeachingStaff ts = new();
-        ts.Collegeid = 123;
-        ts.CollegeName = "CET";
-        ts.Staffid = 1;
-        ts.Name = "raju";
-        ts.Dept = "CS";
-        ts.Specializations = "processor";
-        ts.Sem = 3;
-        ts.DisplayCollegeDetails();
-        ts.DisplayStaffDetails();
-        ts.DisplayTSDetails();
-        break;
-    case 2:
-        NonTeachingStaff nts = new();
-        nts.Collegeid = 123;
-        nts.CollegeName = "CET";
-        nts.Staffid = 11;
-        nts.Name = "reju";
-        nts.Dept = "Office";
-        nts.Responsibilities = "excel";
-        nts.Experience = 3;
-        nts.DisplayCollegeDetails();
-        nts.DisplayStaffDetails();
-        nts.DisplayNTSDetails();
-        break;
-    case 3:
-        StudentDetails s = new();
-        s.Collegeid = 123;
-        s.CollegeName = "CET"; 
-        s.RollNo = 21;
-        s.StudentName = "reju";
-        s.City = "tvm";
-        s.DisplayCollegeDetails();
-        s.DisplayStudentDetails();
-        break;
+case 1:
+TeachingStaff ts = new();
+ts.Collegeid = 123;
+ts.CollegeName = "CET";
+ts.Staffid = 1;
+ts.Name = "raju";
+ts.Dept = "CS";
+ts.Specializations = "processor";
+ts.Sem = 3;
+ts.DisplayCollegeDetails();
+ts.DisplayStaffDetails();
+ts.DisplayTSDetails();
+break;
+case 2:
+NonTeachingStaff nts = new();
+nts.Collegeid = 123;
+nts.CollegeName = "CET";
+nts.Staffid = 11;
+nts.Name = "reju";
+nts.Dept = "Office";
+nts.Responsibilities = "excel";
+nts.Experience = 3;
+nts.DisplayCollegeDetails();
+nts.DisplayStaffDetails();
+nts.DisplayNTSDetails();
+break;
+case 3:
+StudentDetails s = new();
+s.Collegeid = 123;
+s.CollegeName = "CET"; 
+s.RollNo = 21;
+s.StudentName = "reju";
+s.City = "tvm";
+s.DisplayCollegeDetails();
+s.DisplayStudentDetails();
+break;
 }
 
 //abstract ex
@@ -196,21 +197,21 @@ int ch = Convert.ToInt32(Console.ReadLine());
 
 switch(ch)
 {
-    case 1:
-        Console.WriteLine("custid:");
-        //bd1.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
-        bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
-        break;
-        case 2:
-        Console.WriteLine("Acc.no:");
-        bd2.GetAccDetails(Convert.ToInt64(Console.ReadLine()));
-        break;
-        case 3:
-        Console.WriteLine("Name:");
-        bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
-        break;
-    default: Console.WriteLine("enter 1,2 or 3");
-        break;
+case 1:
+Console.WriteLine("custid:");
+//bd1.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
+bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
+break;
+case 2:
+Console.WriteLine("Acc.no:");
+bd2.GetAccDetails(Convert.ToInt64(Console.ReadLine()));
+break;
+case 3:
+Console.WriteLine("Name:");
+bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
+break;
+default: Console.WriteLine("enter 1,2 or 3");
+break;
 
 }
 
@@ -220,10 +221,49 @@ NGC nGC = new NGC();
 //nGC.StackHandling();
 //nGC.QueueHandling();
 //nGC.HTHandling();
-nGC.SortedListHandling();*/
+nGC.SortedListHandling();
 Basic_Program.GC gC = new Basic_Program.GC();
 //gC.ListHandling();
 //gC.StackHandling();
 //gC.QueueHandling();
 //gC.DictionaryHandling();
 gC.SortedListHandling();
+
+//26/10/23
+ExcepHandling exp = new(10,0);
+ExcepHandling exp1 = new(10, 10);
+exp.Divide();
+exp1.Divide();
+
+ExcepHandling exp = new(10, 0);
+try
+{
+    exp.Divide();
+}
+catch (ArithmeticException ex)
+{
+    //Console.WriteLine(ex.Message);
+    //Console.WriteLine(ex.StackTrace);
+    //Console.WriteLine(ex.Source);
+    Console.WriteLine(MyExceptions.exmsglist[0]);
+}
+catch (IndexOutOfRangeException ex)
+{
+    Console.WriteLine(MyExceptions.exmsglist[1]);
+}
+catch(Exception ex)
+{
+    Console.WriteLine(MyExceptions.exmsglist[2]);
+}
+finally { Console.WriteLine("done"); }*/
+
+ExcepHandling exp = new(102, 102);
+try
+{
+    exp.Numcheck();
+}
+catch(ArgumentException ex)
+{
+    Console.WriteLine(ex.Message);
+
+}

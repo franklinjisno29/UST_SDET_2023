@@ -70,7 +70,7 @@ c.Draw();
 Rectangle r = new Rectangle();
 r.Length = 4;
 r.Width = 4;
-r.Draw();*/
+r.Draw();
 
 //assignment1 25/10/23
 InsurancePolicy ip = new("jeevanraksha", 123, 25000);
@@ -85,3 +85,33 @@ CarInsurance ci = new("vahanraksha", 321, 3000, "petrol");
 ci.CalculatePremium();
 Console.WriteLine("Car insurance Premium amount: {0}", ci.PremiumAmount);
 
+//assignment1 26/10/23
+Customer cust1 = new(123, "raju", "9876567890", 3000);
+Customer cust2 = new(243, "reju", "9876568890", 6000);
+Customer cust3 = new(236, "rajesh", "9566567890", 1000);
+Customer.cust.Add(1,cust1);
+Customer.cust.Add(2,cust2);
+Customer.cust.Add(3,cust3);
+Customer.searchcust("9876567890");
+Customer.DisplayCustomers();
+
+//assignment2
+CallRecord cr1 = new(123,9876567890, 3000);
+CallRecord cr2 = new(243,9876568890, 6000);
+CallRecord cr3 = new(236,9876567890, 1000);
+CallRecord.callrec.Add(1, cr1);
+CallRecord.callrec.Add(2, cr2);
+CallRecord.callrec.Add(3, cr3);
+CallRecord.SearchRec(9876567890);
+CallRecord.TotalCalls();*/
+
+//assignment3
+Patient pat = new(1, "", 20, "fever");
+try
+{
+    pat.AddPatient(pat);
+}
+catch(ArgumentException ex)
+{
+    Console.WriteLine(ex.Message);
+}

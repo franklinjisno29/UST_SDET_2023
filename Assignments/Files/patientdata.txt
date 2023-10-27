@@ -1,0 +1,4 @@
+321	deepak	10	fever	 
+23	hari	20	malaria	 
+34	abhinand	20	chickengunia	 
+12	adi	12	viral fever	 

@@ -1,4 +1,6 @@
 ﻿using Assignments;
+using Assignments.Exceptions;
+using System.Xml.Linq;
 //assignment 18/10/2023
 /*Student student1 = new("raju", 92, 70, 86);
 Console.WriteLine(student1.studentname);
@@ -12,8 +14,8 @@ product[2] = new Product("Orange", 80, 90);
 product[0].SetPrice(160);
 foreach (Product prod in product)
 {
-    prod.DisplayProducts();
-    prod.ProductValue();
+prod.DisplayProducts();
+prod.ProductValue();
 
 }
 //assignment2 19/10/2023
@@ -24,10 +26,10 @@ student[1] = new Student("reni","B", new int[] { 80, 60, 85 });
 student[2] = new Student("resto","A", new int[] { 90, 85, 95 });
 foreach(Student s in student)
 {
-    s.DisplayStudents();
-    s.CalculateAverage();
-    s.GetMarksSummary();
-    Console.WriteLine();
+s.DisplayStudents();
+s.CalculateAverage();
+s.GetMarksSummary();
+Console.WriteLine();
 
 }
 
@@ -46,22 +48,22 @@ dp.DisplayFileFormat();
 Console.WriteLine("1. EP \n2. DP \n3. CP");
 switch (Convert.ToInt32(Console.ReadLine()))
 {
-    case 1:
-        ElectronicsProduct ep = new("Apple", 150, 20, 6);
-        ep.DisplayProducts();
-        ep.DisplayWarrantyPeriod();
-        break;
-    case 2:
-        DigitalProduct dp = new("Apple", 150, 20, 6, "MP3");
-        dp.DisplayProducts();
-        dp.DisplayWarrantyPeriod();
-        dp.DisplayFileFormat();
-        break;
-    case 3:
-        ClothingProduct cp = new("shirt", 750, 20, "small");
-        cp.DisplayProducts();
-        cp.DisplaySize();
-        break;
+case 1:
+    ElectronicsProduct ep = new("Apple", 150, 20, 6);
+    ep.DisplayProducts();
+    ep.DisplayWarrantyPeriod();
+    break;
+case 2:
+    DigitalProduct dp = new("Apple", 150, 20, 6, "MP3");
+    dp.DisplayProducts();
+    dp.DisplayWarrantyPeriod();
+    dp.DisplayFileFormat();
+    break;
+case 3:
+    ClothingProduct cp = new("shirt", 750, 20, "small");
+    cp.DisplayProducts();
+    cp.DisplaySize();
+    break;
 }
 //assignment 23/10/23
 Circle c = new Circle();
@@ -103,15 +105,100 @@ CallRecord.callrec.Add(1, cr1);
 CallRecord.callrec.Add(2, cr2);
 CallRecord.callrec.Add(3, cr3);
 CallRecord.SearchRec(9876567890);
-CallRecord.TotalCalls();*/
+CallRecord.TotalCalls();
 
 //assignment3
 Patient pat = new(1, "", 20, "fever");
 try
 {
-    pat.AddPatient(pat);
+pat.AddPatient(pat);
 }
 catch(ArgumentException ex)
 {
-    Console.WriteLine(ex.Message);
+Console.WriteLine(ex.Message);
 }
+
+//27/10/23 assignment1
+MedicalRecord med = new(1, "", 20, "fever", 321, 5000);
+try
+{
+MedicalRecord.AddRecord(med);
+}
+catch(InvalidPatientDataException ex)
+{
+Console.WriteLine(ex.Message);
+}
+MedicalRecord med2 = new(1, "patient2", 20, "fever", 321, -5000);
+try
+{
+MedicalRecord.AddRecord(med2);
+}
+catch (InvalidMedicalRecordException ex)
+{
+Console.WriteLine(ex.Message);
+}
+MedicalRecord med1 = new(1, "patient3", 20, "fever", 321, 5000);
+try
+{
+MedicalRecord.AddRecord(med1);
+}
+catch (InvalidPatientDataException ex)
+{
+Console.WriteLine(ex.Message);
+}
+//assignment2
+repeat:
+Console.WriteLine("1.Add patient 2.View Patient 3.Exit");
+string? choose = Console.ReadLine();
+if(choose =="1")
+{
+    Console.WriteLine("enter patientid:");
+    int id = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("enter patient name:");
+    string? name = Console.ReadLine();
+    Console.WriteLine("enter age:");
+    int age = Convert.ToInt32(Console.ReadLine());
+    Console.WriteLine("enter diagnosis:");
+    string? diagnosis = Console.ReadLine();
+    Patient pat = new(id, name, age, diagnosis);
+    pat.AddPatientfile(pat);
+}
+else if (choose == "2")
+{
+    Patient.ViewPatientData();
+}
+Console.WriteLine("Do you want to continue? (Y/N");
+string? titleread = Console.ReadLine();
+if (titleread == "y")
+{
+    goto repeat;
+}*/
+//assignment3
+
+MedicalHistory mh1 = new(1, 10,"fever", "11/12/23");
+MedicalHistory mh2 = new(2, 20, "fever2", "12/12/23");
+MedicalHistory mh3 = new(2, 30, "fever3", "12/12/23");
+MedicalHistory.mh.Add(mh1);
+MedicalHistory.mh.Add(mh2);
+MedicalHistory.mh.Add(mh3);
+
+repeat:
+Console.WriteLine("1.Add Medical History 2.View Medical History 3.Exit");
+string? choose = Console.ReadLine();
+if (choose == "1")
+{
+    MedicalHistory.AddMHfile(mh1);
+    MedicalHistory.AddMHfile(mh2);
+    MedicalHistory.AddMHfile(mh3);
+}
+else if (choose == "2")
+{
+    MedicalHistory.ViewMHData();
+}
+Console.WriteLine("Do you want to continue? (Y/N");
+string? titleread = Console.ReadLine();
+if (titleread == "y")
+{
+    goto repeat;
+}
+

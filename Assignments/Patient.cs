@@ -39,5 +39,45 @@ namespace Assignments
             }
             
         }
+        public void CreateFile()
+        {
+           FileStream fs = new FileStream("D:\\UST_SDET_2023\\Assignments\\Files\\patientdata.txt", FileMode.Create, FileAccess.Write);
+        }
+
+        public void AddPatientfile(Patient patient)
+        {
+        FileInfo fi = new FileInfo("D:\\UST_SDET_2023\\Assignments\\Files\\patientdata.txt");
+        if (!fi.Exists)
+            CreateFile();
+            else
+            {
+                FileStream fs = new FileStream("D:\\UST_SDET_2023\\Assignments\\Files\\patientdata.txt", FileMode.Append, FileAccess.Write);
+                pats.Add(patient);
+                Console.WriteLine("Patient added");
+                StreamWriter stw = new StreamWriter(fs);
+                stw.Write(patient.PatientId + "\t");
+                stw.Write(patient.Name + "\t");
+                stw.Write(patient.Age + "\t");
+                stw.Write(patient.Diagnosis + "\t");
+                stw.WriteLine(" ");
+                stw.Flush();
+                stw.Close();
+                fs.Close();
+            }   
+        }
+        public static void ViewPatientData()
+        {
+            FileStream fs = new FileStream("D:\\UST_SDET_2023\\Assignments\\Files\\patientdata.txt", FileMode.Open, FileAccess.Read);
+            StreamReader stream = new StreamReader(fs);
+            stream.BaseStream.Seek(0, SeekOrigin.Begin);
+            string? str = stream.ReadLine();
+            while (str != null)
+            {
+                Console.WriteLine(str);
+                str = stream.ReadLine();
+            }
+            stream.Close();
+            fs.Close();
+        }
     }
 }

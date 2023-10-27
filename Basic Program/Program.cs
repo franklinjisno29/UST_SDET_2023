@@ -255,7 +255,7 @@ catch(Exception ex)
 {
     Console.WriteLine(MyExceptions.exmsglist[2]);
 }
-finally { Console.WriteLine("done"); }*/
+finally { Console.WriteLine("done"); }
 
 ExcepHandling exp = new(99, 102);
 try
@@ -273,4 +273,13 @@ try
 catch (Num2Exception ex)
 {
     Console.WriteLine(ex.Message);
-}
+}*/
+
+//27/10/23
+FileOperations fo = new FileOperations();
+fo.CreateFile();
+fo.WriteData();
+fo.ReadData();
+//fo.CopyMoveFile();
+fo.DeleteFile();
+fo.FileProperties();

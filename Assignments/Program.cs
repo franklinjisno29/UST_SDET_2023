@@ -174,14 +174,12 @@ if (titleread == "y")
     goto repeat;
 }*/
 //assignment3
-
 MedicalHistory mh1 = new(1, 10,"fever", "11/12/23");
 MedicalHistory mh2 = new(2, 20, "fever2", "12/12/23");
 MedicalHistory mh3 = new(2, 30, "fever3", "12/12/23");
 MedicalHistory.mh.Add(mh1);
 MedicalHistory.mh.Add(mh2);
 MedicalHistory.mh.Add(mh3);
-
 repeat:
 Console.WriteLine("1.Add Medical History 2.View Medical History 3.Exit");
 string? choose = Console.ReadLine();

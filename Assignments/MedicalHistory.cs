@@ -23,11 +23,11 @@ namespace Assignments
         public string? Date { get; set; }
 
         public static List<MedicalHistory> mh = new List<MedicalHistory>();
-        public static void AddMedicalHistory(MedicalHistory medhis)
-        {
-            mh.Add(medhis);
-            Console.WriteLine("Medical History added");
-        }
+        //public static void AddMedicalHistory(MedicalHistory medhis)
+        //{
+        //    mh.Add(medhis);
+        //    Console.WriteLine("Medical History added");
+        //}
         public static  void CreateFiles()
         {
             FileStream fs = new FileStream("D:\\UST_SDET_2023\\Assignments\\Files\\medicalhistorydata.txt", FileMode.Create, FileAccess.Write);

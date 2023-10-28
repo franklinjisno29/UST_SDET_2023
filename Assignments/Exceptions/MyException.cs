@@ -21,11 +21,12 @@ namespace Assignments.Exceptions
 
         }
     }
-    public class InvalidMedicalRecordException : Exception
+    public class InvalidMedicalDataException : Exception
     {
-        public InvalidMedicalRecordException(string msg) : base(msg)
+        public InvalidMedicalDataException(string msg) : base(msg)
         {
 
         }
     }
+}
 }

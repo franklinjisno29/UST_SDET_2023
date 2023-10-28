@@ -2,3 +2,4 @@
 23	hari	20	malaria	 
 34	abhinand	20	chickengunia	 
 12	adi	12	viral fever	 
+12	qwerty	32	qwsaw	 

@@ -84,7 +84,5 @@ namespace Case_Study
                 return new List<Order>();
             }
         }
-
-        // Additional methods for order and product management can be added here
     }
 }

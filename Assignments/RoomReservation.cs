@@ -22,9 +22,11 @@ namespace Assignments
                 if(i.RoomNumber == roomno)
                 {
                     i.IsBooked = false;
+                    Console.WriteLine("Room Cancelled");
+                    break;
                 }    
             }
-            Console.WriteLine("Room Cancelled");
+            
         }
     }
 }

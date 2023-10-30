@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Assignments
 {
-    internal class DigitalProduct : ElectronicsProduct
-    {
-        public DigitalProduct(string? productName, double price, int quantity, int warrantyPeriod,string? fileFormat) : base(productName,price,quantity,warrantyPeriod)
-        {
-            FileFormat = fileFormat;
-        }
+    //internal class DigitalProduct : ElectronicsProduct
+    //{
+    //    public DigitalProduct(string? productName, double price, int quantity, int warrantyPeriod,string? fileFormat) : base(productName,price,quantity,warrantyPeriod)
+    //    {
+    //        FileFormat = fileFormat;
+    //    }
 
-        public string? FileFormat { get; set; }
-        public void DisplayFileFormat()
-        {
-            Console.WriteLine("File Format: {0}", FileFormat);
-        }
+    //    public string? FileFormat { get; set; }
+    //    public void DisplayFileFormat()
+    //    {
+    //        Console.WriteLine("File Format: {0}", FileFormat);
+    //    }
 
-    }
+    //}
 }

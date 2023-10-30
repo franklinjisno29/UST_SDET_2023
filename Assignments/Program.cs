@@ -198,12 +198,22 @@ string? titleread = Console.ReadLine();
 if (titleread == "y")
 {
     goto repeat;
-}*/
+}
 
 //30/10/23 assignment1
 var typ1 = "single";
 var typ2 = 2;
 RoomReservation<string>.BookRoom(123, ref typ1);
 RoomReservation<int>.BookRoom(101, ref typ2);
-RoomReservation<string>.CancelRoom(123);
+RoomReservation<string>.CancelRoom(123);*/
+
+//assignment2
+var typ1 = "Iphone";
+var typ2 = 1010;
+var typ3 = "samsung";
+Product<string>.AddProduct(1, ref typ1, 100, 2);
+Product<int>.AddProduct(2, ref typ2, 50, 3);
+Product<string>.UpdateProduct(1, typ3);
+Product<string>.DeleteProduct(2);
+Product<string>.SearchProduct(1);
 

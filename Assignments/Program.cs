@@ -172,7 +172,7 @@ string? titleread = Console.ReadLine();
 if (titleread == "y")
 {
     goto repeat;
-}*/
+}
 //assignment3
 MedicalHistory mh1 = new(1, 10,"fever", "11/12/23");
 MedicalHistory mh2 = new(2, 20, "fever2", "12/12/23");
@@ -198,5 +198,12 @@ string? titleread = Console.ReadLine();
 if (titleread == "y")
 {
     goto repeat;
-}
+}*/
+
+//30/10/23 assignment1
+var typ1 = "single";
+var typ2 = 2;
+RoomReservation<string>.BookRoom(123, ref typ1);
+RoomReservation<int>.BookRoom(101, ref typ2);
+RoomReservation<string>.CancelRoom(123);
 

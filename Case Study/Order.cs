@@ -84,5 +84,29 @@ namespace Case_Study
                 return new List<Order>();
             }
         }
+        public static void CreateReport()
+        {
+            FileStream fs = new FileStream("Files\\Report.txt", FileMode.Create, FileAccess.Write);
+        }
+
+        public static void AddReport(Order order)
+        {
+            FileInfo fi = new FileInfo("D:\\UST_SDET_2023\\Case Study\\Files\\Report.txt");
+            if (!fi.Exists)
+                CreateReport();
+            else
+            {
+                using StreamWriter stw = fi.AppendText();
+                stw.Write(order.OrderID + "\t");
+                stw.Write(order.ProductID + "\t");
+                stw.Write(order.Quantity + "\t");
+                stw.Write(order.TotalAmount + "\t");
+                stw.Write(order.OrderDate + "\t");
+                stw.Write(order.Status + "\t");
+                stw.WriteLine(" ");
+                stw.Flush();
+                stw.Close();
+            }
+        }
     }
 }

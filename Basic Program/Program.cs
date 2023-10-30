@@ -8,7 +8,6 @@ y = Convert.ToInt32(Console.ReadLine());
 z = x + y;
 Console.WriteLine(z);
 
-
 string? s1, s2, s3;
 s1 = Console.ReadLine();
 s2 = Console.ReadLine();
@@ -21,7 +20,6 @@ Console.WriteLine(s2.Substring(3));
 string[] s=s3.Split(' ');
 for(int i=0;i<s.Length;i++)
 Console.WriteLine(s[i]);
-
 
 double x = 5;
 switch (x)
@@ -40,7 +38,6 @@ break;
 }
 
 //driver
-
 Calculation calculation = new Calculation();
 int x = Convert.ToInt32(Console.ReadLine());
 int y = Convert.ToInt32(Console.ReadLine());
@@ -212,9 +209,7 @@ bd2.GetAccDetails(Convert.ToInt32(Console.ReadLine()));
 break;
 default: Console.WriteLine("enter 1,2 or 3");
 break;
-
 }
-
 
 NGC nGC = new NGC();
 //nGC.ArrayListHandling();
@@ -273,7 +268,7 @@ try
 catch (Num2Exception ex)
 {
     Console.WriteLine(ex.Message);
-}*/
+}
 
 //27/10/23
 FileOperations fo = new FileOperations();
@@ -283,3 +278,21 @@ fo.ReadData();
 //fo.CopyMoveFile();
 fo.DeleteFile();
 fo.FileProperties();
+
+//30/10/23
+GenEx<int> genEx = new GenEx<int>(10, 20);
+Console.WriteLine(genEx.Val1 + " " + genEx.Val2);
+GenEx<double> genEx1 = new GenEx<double>(10.9876, 20.1234);
+Console.WriteLine(genEx1.Val1 + " " + genEx1.Val2);
+GenEx<string> genEx2 = new GenEx<string>("hi", "hello");
+Console.WriteLine(genEx2.Val1 + " " + genEx2.Val2);
+GenEx<bool> genEx3 = new GenEx<bool>(true, false);
+Console.WriteLine(genEx3.Val1 + " " + genEx3.Val2);
+
+GenEx<int> ga = new GenEx<int>(new int[3] {10,20,30});
+ga.Disp();
+
+int n1 = 10, n2 = 20;
+GenEx<int>.Swap(ref n1, ref n2);
+Console.WriteLine("a={0}, b={1}",n1,n2);*/
+

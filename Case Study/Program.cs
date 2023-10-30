@@ -95,7 +95,9 @@ if (choose == "1")
     Console.WriteLine("1.Add Product 2.View Product 3.Go Back");
     string? choose1 = Console.ReadLine();
     if(choose1 == "1")
-    {  
+    {
+        PhysicalProduct physProduct2 = new PhysicalProduct(12, "Iphone15", 50, 100, 2.5, "10*10");
+        orders.AddProduct(physProduct2);
         Console.WriteLine("Products Added Successfully");
     }
     else if(choose1 == "2")
@@ -153,6 +155,7 @@ else if(choose == "2")
                     customer.ProcessPayment();
                     customer.ViewOrderHistory();
                     physProduct.DeliverProduct();
+                    Order.AddReport(customerOrder);
                 }
             }
         }
@@ -194,6 +197,8 @@ else if(choose == "2")
                     customer.ProcessPayment();
                     customer.ViewOrderHistory();
                     digitalProduct.DeliverProduct();
+                    Order.AddReport(customerOrder);
+
                 }
             }
         }
@@ -203,7 +208,7 @@ else if(choose == "2")
         }
     }
 }
-Console.WriteLine("Do you want to continue? (Y/N");
+Console.WriteLine("Do you want to continue? (Y/N)");
 string? titleread = Console.ReadLine();
 if (titleread == "y")
 {

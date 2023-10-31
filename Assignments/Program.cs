@@ -215,11 +215,10 @@ Product<string>.AddProduct(1, ref typ1, 100, 2);
 Product<int>.AddProduct(2, ref typ2, 50, 3);
 Product<string>.UpdateProduct(1, typ3);
 Product<string>.DeleteProduct(2);
-Product<string>.SearchProduct(1);*/
+Product<string>.SearchProduct(1);
 
 //31/10/23 assinment1
 public delegate double Emp1(double perfrate);
-
 class Program
 {
     public static void Main(string[] args)
@@ -253,5 +252,23 @@ class Program
         {
             goto repeat;
         }
+    }
+}*/
+//assignment2
+public delegate void Hotele1();
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+ 
+        HotelEvent hotelEvent = new HotelEvent("haloween","31-10-23","kochi",500);
+        HotelEvent hotelEvent1 = new HotelEvent("djparty", "30-10-23", "kochi", 400);
+        HotelEvent.AddEvent(hotelEvent);
+        HotelEvent.AddEvent(hotelEvent1);
+        Hotele1 hotelevent2 = HotelEvent.RegisterEvent;
+        Hotele1 hotelevent3 = HotelEvent.Statusreg;
+        Hotele1 objall = hotelevent2 + hotelevent3;
+        objall.Invoke();
     }
 }

@@ -296,3 +296,41 @@ int n1 = 10, n2 = 20;
 GenEx<int>.Swap(ref n1, ref n2);
 Console.WriteLine("a={0}, b={1}",n1,n2);*/
 
+//31/10/23
+public delegate void Del(); //declaring delegate
+public delegate void Del1(string msg);
+public delegate void Del2(int n1, int n2);
+public delegate int Del3(int n1, int n2);
+
+class Program
+{
+    public static void delcall()
+    {
+        Del dobj = DelEx.MethodA; //bind
+        dobj.Invoke(); //invoke
+
+        Del1 objd = DelEx.MethodB;
+        objd.Invoke("How r uuuuuu!!!");
+
+        DelEx del = new();
+        Del2 objdd = del.Add;
+        objdd.Invoke(2, 4);
+
+        DelEx del1 = new();
+        Del2 objddd = del.Sub;
+        objddd.Invoke(2, 4);
+
+        DelEx del2 = new();
+        Del3 objdddd = del.AddR;
+        Console.WriteLine(objdddd.Invoke(2, 4));
+
+        Del2 objall = objdd + objddd; //multicasting delegate
+        objall.Invoke(2, 4);
+        objall.Invoke(Convert.ToInt32(Console.ReadLine()), Convert.ToInt32(Console.ReadLine()));
+    }
+    public static void Main(string[] args)
+    {
+        //Del dobj = DelEx.MethodA;
+        delcall();
+    }
+}

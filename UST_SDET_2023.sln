@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignments", "Assignments\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Case Study", "Case Study\Case Study.csproj", "{507B22C4-7A9D-48A1-BFAC-C39EDCCA6C50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQEx", "LINQEx\LINQEx.csproj", "{BBC4CD53-DF06-4F51-BF33-13E1F197FD65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{507B22C4-7A9D-48A1-BFAC-C39EDCCA6C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{507B22C4-7A9D-48A1-BFAC-C39EDCCA6C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{507B22C4-7A9D-48A1-BFAC-C39EDCCA6C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBC4CD53-DF06-4F51-BF33-13E1F197FD65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBC4CD53-DF06-4F51-BF33-13E1F197FD65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBC4CD53-DF06-4F51-BF33-13E1F197FD65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBC4CD53-DF06-4F51-BF33-13E1F197FD65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

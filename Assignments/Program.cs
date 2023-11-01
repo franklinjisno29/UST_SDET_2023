@@ -253,7 +253,7 @@ class Program
             goto repeat;
         }
     }
-}*/
+}
 //assignment2
 public delegate void Hotele1();
 
@@ -272,3 +272,19 @@ class Program
         objall.Invoke();
     }
 }
+
+//1/11/2023 assignment1
+TourismDestination.tourismlist.Add(new TourismDestination("Eifel tower", "France", 5.0));
+TourismDestination.tourismlist.Add(new TourismDestination("Taj Mahal", "India", 3.0));
+TourismDestination.tourismlist.Add(new TourismDestination("Pyramid", "Egypt", 4.0));
+TourismDestination.tourismlist.Add(new TourismDestination("Amazon forest", "Brazil", 1.0));
+TourismDestination.tourismlist.Add(new TourismDestination("Padmanabhan temple", "India", 2.0));
+TourismDestination.SortCountry();*/
+
+//assignment2
+TouristDestination.tourismlist.Add(new TouristDestination("Eifel tower", "France", 5.0,3000));
+TouristDestination.tourismlist.Add(new TouristDestination("Taj Mahal", "India", 3.0,5000));
+TouristDestination.tourismlist.Add(new TouristDestination("Pyramid", "Egypt", 5.0,4000));
+TouristDestination.tourismlist.Add(new TouristDestination("Amazon forest", "Brazil", 1.0,6000));
+TouristDestination.tourismlist.Add(new TouristDestination("Padmanabhan temple", "India", 2.0,2000));
+TouristDestination.Filteringspot();

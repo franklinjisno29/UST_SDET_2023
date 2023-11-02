@@ -287,20 +287,53 @@ TouristDestination.tourismlist.Add(new TouristDestination("Taj Mahal", "India", 
 TouristDestination.tourismlist.Add(new TouristDestination("Pyramid", "Egypt", 5.0,4000));
 TouristDestination.tourismlist.Add(new TouristDestination("Amazon forest", "Brazil", 1.0,6000));
 TouristDestination.tourismlist.Add(new TouristDestination("Padmanabhan temple", "India", 2.0,2000));
-TouristDestination.Filteringspot();*/
+TouristDestination.Filteringspot();
 
 //2/11/23assignment1
 class Program
 {
     static async Task Main()
     {
-        Hotel hotel = new Hotel("Eifel tower", "France", 5.0, "Taj", 300);
-        List<Task> bookTasks = new List<Task>();
-        Console.WriteLine("enter no. of rooms to book:");
-        int reqrooms = Convert.ToInt32(Console.ReadLine());
-        Task bookTask = hotel.BookHotel(reqrooms);
-        bookTasks.Add(bookTask);
-        await Task.WhenAll(bookTasks);
-        Console.WriteLine($"Thank you");
+        Hotel hotel1 = new Hotel("Eifel tower", "France", 5.0, "Taj", 300);
+        Hotel hotel2 = new Hotel("Paris", "France", 4.0, "flamingo", 200);
+
+        Console.WriteLine("Available rooms at Hotel{0} is {1}", hotel1.HotelName, hotel1.AvailableRooms);
+        Console.WriteLine("Available rooms at Hotel{0} is {1}", hotel2.HotelName, hotel2.AvailableRooms);
+
+        await BookRoom(hotel1, 10);
+        await BookRoom(hotel2, 6);
+
+        Console.WriteLine("Available rooms at Hotel{0} is {1}", hotel1.HotelName, hotel1.AvailableRooms);
+        Console.WriteLine("Available rooms at Hotel{0} is {1}", hotel2.HotelName, hotel2.AvailableRooms);
+
     }
+    static async Task BookRoom( Hotel hotel, int reqrooms )
+    {
+        await hotel.BookHotel(reqrooms);
+    }
+}*/
+
+//assignment2
+List<Thread> packageThreads = new List<Thread>();
+TourPackage tourpack1 = new TourPackage(1,"kerala","21/11/23",3000);
+TourPackage tourpack2 = new TourPackage(2, "tamilnadu", "2/11/23", 4000);
+TourPackage tourpack3 = new TourPackage(3, "karnataka", "11/11/23", 5000);
+Thread pack1 = new Thread(() => TourPackage.BookPackage(tourpack1));
+Thread pack2 = new Thread(() => TourPackage.BookPackage(tourpack2));
+Thread pack3 = new Thread(() => TourPackage.BookPackage(tourpack3));
+packageThreads.Add(pack1);
+packageThreads.Add(pack2);
+packageThreads.Add(pack3);
+foreach (Thread t in packageThreads)
+{
+    t.Start();
 }
+foreach (Thread t in packageThreads)
+{
+    t.Join();
+}
+foreach (var t in TourPackage.bookedpackages)
+{
+    Console.WriteLine("PackageID: {0},Destination:{1}, Date:{2}, Price: {3}",t.PackageId,t.Destination,t.Date,t.Price);
+}
+

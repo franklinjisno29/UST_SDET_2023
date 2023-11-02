@@ -279,7 +279,7 @@ TourismDestination.tourismlist.Add(new TourismDestination("Taj Mahal", "India", 
 TourismDestination.tourismlist.Add(new TourismDestination("Pyramid", "Egypt", 4.0));
 TourismDestination.tourismlist.Add(new TourismDestination("Amazon forest", "Brazil", 1.0));
 TourismDestination.tourismlist.Add(new TourismDestination("Padmanabhan temple", "India", 2.0));
-TourismDestination.SortCountry();*/
+TourismDestination.SortCountry();
 
 //assignment2
 TouristDestination.tourismlist.Add(new TouristDestination("Eifel tower", "France", 5.0,3000));
@@ -287,4 +287,20 @@ TouristDestination.tourismlist.Add(new TouristDestination("Taj Mahal", "India", 
 TouristDestination.tourismlist.Add(new TouristDestination("Pyramid", "Egypt", 5.0,4000));
 TouristDestination.tourismlist.Add(new TouristDestination("Amazon forest", "Brazil", 1.0,6000));
 TouristDestination.tourismlist.Add(new TouristDestination("Padmanabhan temple", "India", 2.0,2000));
-TouristDestination.Filteringspot();
+TouristDestination.Filteringspot();*/
+
+//2/11/23assignment1
+class Program
+{
+    static async Task Main()
+    {
+        Hotel hotel = new Hotel("Eifel tower", "France", 5.0, "Taj", 300);
+        List<Task> bookTasks = new List<Task>();
+        Console.WriteLine("enter no. of rooms to book:");
+        int reqrooms = Convert.ToInt32(Console.ReadLine());
+        Task bookTask = hotel.BookHotel(reqrooms);
+        bookTasks.Add(bookTask);
+        await Task.WhenAll(bookTasks);
+        Console.WriteLine($"Thank you");
+    }
+}

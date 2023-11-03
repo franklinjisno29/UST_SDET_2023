@@ -335,7 +335,7 @@ foreach (Thread t in packageThreads)
 foreach (var t in TourPackage.bookedpackages)
 {
     Console.WriteLine("PackageID: {0},Destination:{1}, Date:{2}, Price: {3}",t.PackageId,t.Destination,t.Date,t.Price);
-}*/
+}
 
 //3/11/23assignment1
 //TaskItem taskManager1 = new TaskItem();
@@ -357,4 +357,25 @@ taskManager.DisplayPendingTasks();
 
 taskManager.RemoveTask(3);
 Console.WriteLine("\nTasks after removing one task:");
-taskManager.DisplayTasks();
+taskManager.DisplayTasks();*/
+
+//assignment2
+FamilyMember grandparent = new FamilyMember("Grandparent", 70);
+FamilyTree familyTree = new FamilyTree(grandparent);
+
+FamilyMember parent1 = new FamilyMember("Parent 1", 45);
+FamilyMember parent2 = new FamilyMember("Parent 2", 40);
+FamilyMember child1 = new FamilyMember("Child 1", 18);
+FamilyMember child2 = new FamilyMember("Child 2", 16);
+FamilyMember grandchild1 = new FamilyMember("Grandchild 1", 5);
+
+// Build family tree relationships
+grandparent.AddChild(parent1);
+grandparent.AddChild(parent2);
+parent1.AddChild(child1);
+parent1.AddChild(child2);
+child1.AddChild(grandchild1);
+
+// Display family tree
+Console.WriteLine("Family Tree:");
+familyTree.DisplayFamilyTree();

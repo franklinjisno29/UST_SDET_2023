@@ -311,7 +311,7 @@ class Program
     {
         await hotel.BookHotel(reqrooms);
     }
-}*/
+}
 
 //assignment2
 List<Thread> packageThreads = new List<Thread>();
@@ -335,5 +335,26 @@ foreach (Thread t in packageThreads)
 foreach (var t in TourPackage.bookedpackages)
 {
     Console.WriteLine("PackageID: {0},Destination:{1}, Date:{2}, Price: {3}",t.PackageId,t.Destination,t.Date,t.Price);
-}
+}*/
 
+//3/11/23assignment1
+//TaskItem taskManager1 = new TaskItem();
+CustomLinkedList taskManager = new CustomLinkedList();
+
+taskManager.AddTask(1, "Complete project proposal");
+taskManager.AddTask(2, "Buy groceries");
+taskManager.AddTask(3, "Read a book");
+
+Console.WriteLine("All Tasks:");
+taskManager.DisplayTasks();
+
+taskManager.MarkTaskAsCompleted(2);
+Console.WriteLine("\nCompleted Tasks:");
+taskManager.DisplayCompletedTasks();
+
+Console.WriteLine("\nPending Tasks:");
+taskManager.DisplayPendingTasks();
+
+taskManager.RemoveTask(3);
+Console.WriteLine("\nTasks after removing one task:");
+taskManager.DisplayTasks();

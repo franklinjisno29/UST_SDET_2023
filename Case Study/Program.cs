@@ -1,7 +1,10 @@
 ﻿//Case Study 1 - 21/10/23
 using Case_Study;
+using Case_Study.ProjectException;
 using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
+using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 /*BookType[] booktype = new BookType[]
 {
@@ -215,22 +218,38 @@ if (titleread == "y")
 }*/
 
 //CaseStudy 4/11/23
-public delegate void EnrollementHandler();
+public delegate void EnrollementHandler(Student student, Course course);
+public delegate void EnrollmentHandler(EnrollementRecord enrollrec);
 
 class Program
 {
     public static void Main(string[] args)
     {
-        Student studentrecord = new Student()
+        Student studentrecord = new();
+        Course courserecord1 = new Course()
         {
-            StudentID = 101,
-            Name = "tintu",
-            Email = "tintu@example.com"
+            CourseCode = 123,
+            Title = "BBA",
+            Instructor = "Bheem"
         };
-        Course courserecord1 = new Course(123, "BBA", "Bheem");
-        Course courserecord2 = new Course(124, "BSC", "Raju");
-        Course courserecord3 = new Course(125, "MBA", "Vikram");
-        Course courserecord4 = new Course(126, "MSC", "Dhili");
+        Course courserecord2 = new Course()
+        {
+            CourseCode = 124,
+            Title = "BSC",
+            Instructor = "Raju"
+        };
+        Course courserecord3 = new Course()
+        {
+            CourseCode = 125,
+            Title = "MBA",
+            Instructor = "Vikram"
+        };
+        Course courserecord4 = new Course()
+        {
+            CourseCode = 126,
+            Title = "BSC",
+            Instructor = "Dhili"
+        };
         EnrollementRecord.courses.Add(courserecord1);
         EnrollementRecord.courses.Add(courserecord2);
         EnrollementRecord.courses.Add(courserecord3);
@@ -242,21 +261,26 @@ class Program
         if (choose == "1")
         {
         repeat:
-            Console.WriteLine("1.Add Course 2.View Course 3.Remove Course 4.Go Back");
+            Console.WriteLine("1.Add Course 2.View Course 3.Remove Course 4.Students List 5.Go Back");
             string? choose1 = Console.ReadLine();
             if (choose1 == "1")
             {
-                Course courserecord5 = new Course(127, "BTech", "Rolex");
+                Course courserecord5 = new Course()
+                {
+                    CourseCode = 127,
+                    Title = "BTech",
+                    Instructor = "Rolex"
+                };
                 EnrollementRecord.courses.Add(courserecord5);
                 Console.WriteLine("Courses Added Successfully");
             }
             else if (choose1 == "2")
             {
-                Console.WriteLine("Courses");
-                foreach (var crse in EnrollementRecord.enrollementRecords)
+                Console.WriteLine("Courses:");
+                foreach (var crse in EnrollementRecord.courses)
                 {
-                    Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}, StudentID:{3}, Student Name: {4}, Email: {5}", crse.Course.CourseCode, crse.Course.Title, crse.Course.Instructor, crse.Student.StudentID, crse.Student.Name, crse.Student.Email);
-                }
+                    Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}", crse.CourseCode, crse.Title, crse.Instructor);
+                } 
             }
             else if (choose1 == "3")
             {
@@ -265,37 +289,74 @@ class Program
             }
             else if (choose1 == "4")
             {
-                goto repeat1;
+                Console.WriteLine("Courses");
+                foreach (var crse in EnrollementRecord.enrollementRecords)
+                {
+                    Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}, StudentID:{3}, Student Name: {4}, Email: {5}", crse.Course.CourseCode, crse.Course.Title, crse.Course.Instructor, crse.Student.StudentID, crse.Student.Name, crse.Student.Email);
+                }
             }
+            else if(choose1 == "5") { goto repeat1; }
             goto repeat;
         }
         else if (choose == "2")
         {
-            Console.WriteLine("Courses:");
-            foreach (var crse in EnrollementRecord.courses)
-            {
-                Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}", crse.CourseCode, crse.Title, crse.Instructor);
-            }
-            Console.WriteLine("1.Course Registration 2. Course Withdrawal");
+            repeat3:
+            Console.WriteLine("1. Register student 2. Course Registration 3. Course Withdrawal");
             string? choose2 = Console.ReadLine();
             if (choose2 == "1")
             {
-                Console.WriteLine("Course for Registration:");
-                int regcourse = Convert.ToInt32(Console.ReadLine());
-                Course regstrcourse = EnrollementRecord.courses.FirstOrDefault(c => c.CourseCode == regcourse);
-                EnrollementRecord.AddEnroll(studentrecord, regstrcourse);
-                Console.WriteLine("Enrolled in course");
-                Console.WriteLine("Course Details:");
-                EnrollementRecord reg = EnrollementRecord.enrollementRecords.FirstOrDefault(c => c.Course.CourseCode == regcourse);
-                Console.WriteLine(reg.Course.CourseCode + "\t" + reg.Course.Title + "\t" + reg.Course.Instructor + "\t" + reg.Student.StudentID + "\t" + reg.Student.Name + "\t" + reg.Student.Email);
+                Console.WriteLine("Enter student ID:");
+                int id = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter student Name:");
+                string? name = Console.ReadLine();
+                Console.WriteLine("Enter Email:");
+                string? email = Console.ReadLine();
+                studentrecord = new()
+                {
+                    StudentID = id,
+                    Name = name,
+                    Email = email
+                };
+                EnrollementRecord.students.Add(studentrecord);
+                goto repeat3;
             }
             else if (choose2 == "2")
             {
-                Console.WriteLine("Course for deletion");
-                int regcourse = Convert.ToInt32(Console.ReadLine());
-                Course regstrcourse = EnrollementRecord.courses.FirstOrDefault(c => c.CourseCode == regcourse);
-                EnrollementRecord.RemoveEnroll(studentrecord, regstrcourse);
-                Console.WriteLine("Removed from course");
+                Console.WriteLine("Courses:");
+                foreach (var crse in EnrollementRecord.courses)
+                {
+                    Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}", crse.CourseCode, crse.Title, crse.Instructor);
+                }
+                try
+                {
+                    Console.WriteLine("Course for Registration:");
+                    int regcourse = Convert.ToInt32(Console.ReadLine());
+                    Course regstrcourse = EnrollementRecord.courses.FirstOrDefault(c => c.CourseCode == regcourse);
+                    EnrollAsync(studentrecord,regstrcourse);
+                    Console.WriteLine("Enrolled in course");
+                    Console.WriteLine("Course Details:");
+                    //EnrollementRecord reg = EnrollementRecord.enrollementRecords.Find(c => c.Course.CourseCode == regcourse);
+                    //Console.WriteLine(reg.Course.CourseCode + "\t" + reg.Course.Title + "\t" + reg.Course.Instructor + "\t" + reg.Student.StudentID + "\t" + reg.Student.Name + "\t" + reg.Student.Email);
+                }
+                catch (EnrollementException ex) { Console.WriteLine(ex.Message); }
+                
+            }
+            else if (choose2 == "3")
+            {
+                Console.WriteLine("Courses:");
+                foreach (var crse in EnrollementRecord.courses)
+                {
+                    Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}", crse.CourseCode, crse.Title, crse.Instructor);
+                }
+                try
+                {
+                    Console.WriteLine("Course for deletion");
+                    int regcourse = Convert.ToInt32(Console.ReadLine());
+                    EnrollementRecord record = EnrollementRecord.enrollementRecords.FirstOrDefault(c => c.Course.CourseCode == regcourse);
+                    WihtdrawAsync(record);
+                    Console.WriteLine("Removed from course");
+                }
+                catch (EnrollementException ex) { Console.WriteLine(ex.Message); }
             }
         }
         Console.WriteLine("Do you want to continue? (Y/N)");
@@ -304,6 +365,19 @@ class Program
         {
             goto repeat2;
         }
+    }
+    public static async Task EnrollAsync(Student student, Course course)
+    {
+        await Task.Delay(100);
+        EnrollementHandler enrolhand = course.CourseRegistration;
+        enrolhand.Invoke(student, course);
+    }
+    public static async Task WihtdrawAsync(EnrollementRecord enrollrec)
+    {
+        await Task.Delay(100);
+        Course coure = new();
+        EnrollmentHandler enrolhand1 = coure.CourseWithdrawal;
+        enrolhand1.Invoke(enrollrec);
     }
 }
 

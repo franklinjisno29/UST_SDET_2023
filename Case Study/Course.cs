@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Case_Study.ProjectException;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,28 +7,53 @@ using System.Threading.Tasks;
 
 namespace Case_Study
 {
-    internal class Course : IEnrollable
+    public class Course : IEnrollable
     {
-        public Course(int courseCode, string? title, string? instructor)
-        {
-            CourseCode = courseCode;
-            Title = title;
-            Instructor = instructor;
-        }
+        //public Course(int courseCode, string? title, string? instructor)
+        //{
+        //    CourseCode = courseCode;
+        //    Title = title;
+        //    Instructor = instructor;
+        //}
 
         public int CourseCode { get; set; }
         public string? Title { get; set; }
         public string? Instructor { get; set; }
         public List<Student> EnrolledStudents { get; set; } = new List<Student>();
 
-        public void CourseRegistration( Student student)
+        public void CourseRegistration(Student student, Course course)
         {
-            
+            EnrollementRecord enroll = new EnrollementRecord(student, course);
+            int count = 10;
+            if (count <= 10)
+            {
+                EnrollementRecord stud = EnrollementRecord.enrollementRecords.FirstOrDefault(s => s.Student.Name == student.Name);
+                if (stud == null)
+                {
+                    EnrollementRecord.enrollementRecords.Add(enroll);
+                }
+                else
+                {
+                    throw new EnrollementException("Student Already Exists");
+                }
+            }
+            else
+            {
+                throw new EnrollementException("Course is Full");
+            }
         }
 
-        public void CourseWithdrawal(int studentid)
+        public void CourseWithdrawal(EnrollementRecord enrollrec)
         {
-            
+            EnrollementRecord stud = EnrollementRecord.enrollementRecords.FirstOrDefault(s => s.Student.StudentID == enrollrec.Student.StudentID);
+            if (stud != null)
+            {
+                EnrollementRecord.enrollementRecords.Remove(stud);
+            }
+            else
+            {
+                throw new EnrollementException("Can't Find Student");
+            }
         }
     }
 }

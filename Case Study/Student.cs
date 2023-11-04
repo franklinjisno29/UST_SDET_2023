@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Case_Study
 {
-    internal class Student
+    public class Student
     {
         public int StudentID { get; set; }
         public string? Name { get; set; }

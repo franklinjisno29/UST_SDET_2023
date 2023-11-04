@@ -335,8 +335,6 @@ class Program
                     EnrollAsync(studentrecord,regstrcourse);
                     Console.WriteLine("Enrolled in course");
                     Console.WriteLine("Course Details:");
-                    //EnrollementRecord reg = EnrollementRecord.enrollementRecords.Find(c => c.Course.CourseCode == regcourse);
-                    //Console.WriteLine(reg.Course.CourseCode + "\t" + reg.Course.Title + "\t" + reg.Course.Instructor + "\t" + reg.Student.StudentID + "\t" + reg.Student.Name + "\t" + reg.Student.Email);
                 }
                 catch (EnrollementException ex) { Console.WriteLine(ex.Message); }
                 

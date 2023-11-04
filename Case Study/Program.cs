@@ -67,7 +67,7 @@ titleread = Console.ReadLine();
 if(titleread =="y")
 {
 goto repeat;
-}*/
+}
 //casestudy 28/10/23
 Customer customer = new Customer
 {
@@ -198,7 +198,6 @@ else if(choose == "2")
                     customer.ViewOrderHistory();
                     digitalProduct.DeliverProduct();
                     Order.AddReport(customerOrder);
-
                 }
             }
         }
@@ -213,4 +212,98 @@ string? titleread = Console.ReadLine();
 if (titleread == "y")
 {
     goto repeat2;
+}*/
+
+//CaseStudy 4/11/23
+public delegate void EnrollementHandler();
+
+class Program
+{
+    public static void Main(string[] args)
+    {
+        Student studentrecord = new Student()
+        {
+            StudentID = 101,
+            Name = "tintu",
+            Email = "tintu@example.com"
+        };
+        Course courserecord1 = new Course(123, "BBA", "Bheem");
+        Course courserecord2 = new Course(124, "BSC", "Raju");
+        Course courserecord3 = new Course(125, "MBA", "Vikram");
+        Course courserecord4 = new Course(126, "MSC", "Dhili");
+        EnrollementRecord.courses.Add(courserecord1);
+        EnrollementRecord.courses.Add(courserecord2);
+        EnrollementRecord.courses.Add(courserecord3);
+        EnrollementRecord.courses.Add(courserecord4);
+    repeat1:
+    repeat2:
+        Console.WriteLine("1.Admin 2.student");
+        string? choose = Console.ReadLine();
+        if (choose == "1")
+        {
+        repeat:
+            Console.WriteLine("1.Add Course 2.View Course 3.Remove Course 4.Go Back");
+            string? choose1 = Console.ReadLine();
+            if (choose1 == "1")
+            {
+                Course courserecord5 = new Course(127, "BTech", "Rolex");
+                EnrollementRecord.courses.Add(courserecord5);
+                Console.WriteLine("Courses Added Successfully");
+            }
+            else if (choose1 == "2")
+            {
+                Console.WriteLine("Courses");
+                foreach (var crse in EnrollementRecord.enrollementRecords)
+                {
+                    Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}, StudentID:{3}, Student Name: {4}, Email: {5}", crse.Course.CourseCode, crse.Course.Title, crse.Course.Instructor, crse.Student.StudentID, crse.Student.Name, crse.Student.Email);
+                }
+            }
+            else if (choose1 == "3")
+            {
+                EnrollementRecord.courses.Remove(courserecord4);
+                Console.WriteLine("Courses Removed Successfully");
+            }
+            else if (choose1 == "4")
+            {
+                goto repeat1;
+            }
+            goto repeat;
+        }
+        else if (choose == "2")
+        {
+            Console.WriteLine("Courses:");
+            foreach (var crse in EnrollementRecord.courses)
+            {
+                Console.WriteLine("Course Code: {0}, Course Name: {1}, Instructor: {2}", crse.CourseCode, crse.Title, crse.Instructor);
+            }
+            Console.WriteLine("1.Course Registration 2. Course Withdrawal");
+            string? choose2 = Console.ReadLine();
+            if (choose2 == "1")
+            {
+                Console.WriteLine("Course for Registration:");
+                int regcourse = Convert.ToInt32(Console.ReadLine());
+                Course regstrcourse = EnrollementRecord.courses.FirstOrDefault(c => c.CourseCode == regcourse);
+                EnrollementRecord.AddEnroll(studentrecord, regstrcourse);
+                Console.WriteLine("Enrolled in course");
+                Console.WriteLine("Course Details:");
+                EnrollementRecord reg = EnrollementRecord.enrollementRecords.FirstOrDefault(c => c.Course.CourseCode == regcourse);
+                Console.WriteLine(reg.Course.CourseCode + "\t" + reg.Course.Title + "\t" + reg.Course.Instructor + "\t" + reg.Student.StudentID + "\t" + reg.Student.Name + "\t" + reg.Student.Email);
+            }
+            else if (choose2 == "2")
+            {
+                Console.WriteLine("Course for deletion");
+                int regcourse = Convert.ToInt32(Console.ReadLine());
+                Course regstrcourse = EnrollementRecord.courses.FirstOrDefault(c => c.CourseCode == regcourse);
+                EnrollementRecord.RemoveEnroll(studentrecord, regstrcourse);
+                Console.WriteLine("Removed from course");
+            }
+        }
+        Console.WriteLine("Do you want to continue? (Y/N)");
+        string? titleread = Console.ReadLine();
+        if (titleread == "y")
+        {
+            goto repeat2;
+        }
+    }
 }
+
